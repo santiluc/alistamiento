@@ -1,0 +1,39 @@
+.container-fluid {
+    margin-top: 15px;
+}
+
+.section{
+	background-color: blue;
+}
+
+hr{
+	border-width: 1px;
+	max-width: 58px;
+	margin-bottom: 10px; 
+	margin-top: 10px; 
+}
+
+.alistado{
+	background-color: lightgreen !important;
+    pointer-events: none;
+    cursor: default;
+}
+
+#sinborde{
+	margin: 0;
+}
+
+.validado{
+	background-color: red !important;
+    pointer-events: none;
+    cursor: default;
+}
+
+.oculto{
+	opacity: 0;
+	display: none;
+}
+
+#letra{
+	font-size: 60px;
+}
