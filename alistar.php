@@ -1,14 +1,11 @@
 <?php
 session_start();
+require_once('db.php'); 
 $_SESSION['contador'] = $_SESSION['contador'] + 1;
 $ord = $_GET['ord'];
 $ordencompra = $_GET['id'];
 $articulo = $_GET['pt'];
 $cnt = $_GET['cnt'];
-$usuario ="capptus";
-$pass ="Encuentro1";
-$servidor ="SERVER-PC";
-$basedatos ="lucembarques";
 $info = array('Database'=>$basedatos, 'UID'=>$usuario, 'PWD'=>$pass); 
 $conexion = sqlsrv_connect($servidor, $info);  
 

@@ -1,5 +1,5 @@
 <?php 
-
+require_once('db.php'); 
 $productos = [];
 $contador = 0;
 $cliente = "";
@@ -10,11 +10,6 @@ require_once('modelo/Producto.php');
 require_once('modelo/Medida.php'); 
 if ( ! session_id() ) @ session_start();
 if (!isset($_SESSION['productos'])){
-
-  $usuario ="capptus";
-  $pass ="Encuentro1";
-  $servidor ="SERVER-PC";
-  $basedatos ="lucembarques";
   $info = array('Database'=>$basedatos, 'UID'=>$usuario, 'PWD'=>$pass); 
   $conexion = sqlsrv_connect($servidor, $info); 
 
@@ -26,7 +21,8 @@ if (!isset($_SESSION['productos'])){
   where um_pt_id in (
   SELECT sod_pt_id 
   FROM sod_det
-  Where sod_so_id = '".$ordencompra."') order by um_pt_id";
+  Where sod_so_id = '".$ordencompra."'
+  and sod_qty_pick is null) order by um_pt_id";
   $registros2 = sqlsrv_query($conexion, $query2);
   $medidas = [];
   while($row2 = sqlsrv_fetch_object($registros2)){
@@ -75,7 +71,8 @@ if (!isset($_SESSION['productos'])){
   AND sod_so_id = so_id 
   AND sod_pt_id = pt_id
   AND pt_mar_id = mar_id
-  AND so_id = '".$ordencompra."') AS TM
+  AND so_id = '".$ordencompra."'
+  and sod_qty_pick is null) AS TM
   LEFT JOIN alm_mstr ON alm_mstr.alm_pt_id = TM.sod_pt_id";
   $registros2 = sqlsrv_query($conexion, $query2);
   $cliente = "";

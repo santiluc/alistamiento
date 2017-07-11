@@ -7,15 +7,12 @@
 
 <?php
 session_start();
+require_once('db.php'); 
 
   unset($_SESSION['productos']);
   unset($_SESSION['contador']);
   unset($_SESSION['cliente']);
 
-$usuario ="capptus";
-$pass ="Encuentro1";
-$servidor ="SERVER-PC";
-$basedatos ="lucembarques";
 $info = array('Database'=>$basedatos, 'UID'=>$usuario, 'PWD'=>$pass); 
 $conexion = sqlsrv_connect($servidor, $info);  
 $nomcliente = $_GET['nomcli'];
