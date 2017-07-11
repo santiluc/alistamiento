@@ -1,11 +1,8 @@
 <?php
 session_start();
+require_once('db.php'); 
 $username = $_POST['username'];
 $contrasena = $_POST['password'];
-$usuario ="capptus";
-$pass ="Encuentro1";
-$servidor ="SERVER-PC";
-$basedatos ="lucembarques";
 $info = array('Database'=>$basedatos, 'UID'=>$usuario, 'PWD'=>$pass); 
 $conexion = sqlsrv_connect($servidor, $info);  
 

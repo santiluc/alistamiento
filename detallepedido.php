@@ -1,5 +1,5 @@
 <?php 
-
+require_once('db.php'); 
 $productos = [];
 $contador = 0;
 $cliente = "";
@@ -10,11 +10,6 @@ require_once('modelo/Producto.php');
 require_once('modelo/Medida.php'); 
 if ( ! session_id() ) @ session_start();
 if (!isset($_SESSION['productos'])){
-
-  $usuario ="capptus";
-  $pass ="Encuentro1";
-  $servidor ="SERVER-PC";
-  $basedatos ="lucembarques";
   $info = array('Database'=>$basedatos, 'UID'=>$usuario, 'PWD'=>$pass); 
   $conexion = sqlsrv_connect($servidor, $info); 
 
